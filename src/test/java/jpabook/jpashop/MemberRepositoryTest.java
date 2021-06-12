@@ -23,10 +23,11 @@ public class MemberRepositoryTest {
 
         // when
         Long compareMemberId = memberRepository.save(member);
-        Member compareMemberName = memberRepository.find(compareMemberId);
+        Member compareMember = memberRepository.find(compareMemberId);
 
         // then
         Assertions.assertThat(compareMemberId).isEqualTo(member.getId());
-        Assertions.assertThat(compareMemberName.getUsername()).isEqualTo(member.getUsername());
+        Assertions.assertThat(compareMember.getUsername()).isEqualTo(member.getUsername());
+        Assertions.assertThat(compareMember).isEqualTo(member);
     }
 }
