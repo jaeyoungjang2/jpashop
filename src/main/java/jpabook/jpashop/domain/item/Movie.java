@@ -24,4 +24,6 @@ public class Movie extends Item{
     public void setActor(String actor) {
         this.actor = actor;
     }
+
+
 }
