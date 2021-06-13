@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Member {
     @Id @GeneratedValue
     @Column(name = "member_id")
@@ -17,14 +18,6 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
-
-    private List<OrderItem> orderItems = new ArrayList<>();
-
-    private Delivery delivery;
-
-    private LocalDateTime orderDate; // 주문시간
-
-    private OrderStatus status; // 주문상태 (ORDER, CANCEL)
 
     public Long getId() {
         return id;
