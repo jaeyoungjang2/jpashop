@@ -1,14 +1,12 @@
 package jpabook.jpashop.domain;
 
 import jpabook.jpashop.domain.item.Item;
-import jpabook.jpashop.domain.item.item;
-
 import javax.persistence.*;
 
 @Entity
 public class OrderItem {
     @Id @GeneratedValue
-    @Column(name = "order_item")
+    @Column(name = "order_item_id")
     private Long id;
 
     @ManyToOne
@@ -19,9 +17,9 @@ public class OrderItem {
     @JoinColumn(name = "order_id")
     private Order order;
 
-    private int orderPrice; // 주문 가격
+    private int orderPrice; // 주문 당시 가격
 
-    private int count; // 주문 수량
+    private int count; // 주문 당시 수량
 
     public Long getId() {
         return id;
@@ -31,11 +29,11 @@ public class OrderItem {
         this.id = id;
     }
 
-    public jpabook.jpashop.domain.item.item getItem() {
+    public Item getItem() {
         return item;
     }
 
-    public void setItem(jpabook.jpashop.domain.item.item item) {
+    public void setItem(Item item) {
         this.item = item;
     }
 
