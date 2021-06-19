@@ -2,6 +2,7 @@ package jpabook.jpashop.domain;
 
 
 import jpabook.jpashop.domain.item.Item;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class Category {
         inverseJoinColumns = @JoinColumn(name = "item_id"))
     private List<Item> items = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
     private Category parent;
 
