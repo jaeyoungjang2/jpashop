@@ -1,5 +1,6 @@
 package jpabook.jpashop.repository;
 
+import jpabook.jpashop.domain.Order;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -12,5 +13,10 @@ public class OrderRepository {
     public OrderRepository(EntityManager em) {
         this.em = em;
     }
+
+    public void save(Order order){
+        em.persist(order);
+    }
+
 
 }
