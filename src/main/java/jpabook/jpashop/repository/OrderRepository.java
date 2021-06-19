@@ -14,9 +14,13 @@ public class OrderRepository {
         this.em = em;
     }
 
+    // 주문 저장 //
     public void save(Order order){
         em.persist(order);
     }
 
-
+    // 주문 단건 조회 //
+    public Order findOne(Long id){
+        return em.find(Order.class, id);
+    }
 }
